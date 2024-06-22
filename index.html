@@ -4,32 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artisan Bangla Diagram</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/base.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.4/lib/index.min.js"></script>
 </head>
-  <body>
-  <div class="flex flex-col items-center justify-center min-h-[100dvh] bg-background px-4 md:px-6">
-  <div class="max-w-xl space-y-6 text-center">
-    <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Explore Our Diagrams</h1>
-    <p class="text-muted-foreground md:text-xl/relaxed">
-      Dive into the details of our workflow and system architecture. Click the buttons below to view the diagrams.
-    </p>
-    <div class="flex flex-col gap-4 sm:flex-row">
-      <a
-        class="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-        href="./workflow.html"
-        rel="ugc"
-      >
-        Workflow Diagram
-      </a>
-      <a
-        class="inline-flex h-12 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-        href="/architecture.html"
-        rel="ugc"
-      >
-        System Architecture
-      </a>
+<body class="flex items-center justify-center h-screen bg-gray-50">
+    <div class="text-center space-y-4">
+        <h1 class="text-4xl font-bold text-black">Documentation</h1>
+        <p class="text-black/70">Choose an option to view the diagram.</p>
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+            <a
+                href="/workflow.html"
+                class="flex h-12 w-full items-center justify-center rounded-md bg-black text-white px-6 text-lg font-medium shadow-sm transition-colors hover:bg-white hover:text-black focus:outline-none focus:border-2 focus:border-black"
+            >
+                Workflow Diagram
+            </a>
+            <a
+                href="architecture.html"
+                class="flex h-12 w-full items-center justify-center rounded-md bg-black text-white px-6 text-lg font-medium shadow-sm transition-colors hover:bg-white hover:text-black focus:outline-none focus:border-2 focus:border-black"
+            >
+                System Architecture Diagram
+            </a>
+        </div>
     </div>
-  </div>
-  </div>
-  </body>
+</body>
 </html>
