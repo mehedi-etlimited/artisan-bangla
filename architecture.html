@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Architecture Diagram</title>
+    <!-- Include Mermaid.js -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+      graph TD;
+
+    subgraph UK Customers
+        A[Website]
+        B[iOS App]
+        C[Android App]
+    end
+
+    subgraph Remote Backend in Bangladesh
+        D[Centralized Database]
+        E[Authentication Service]
+        F[Payment Gateway Integration]
+        G[Order Management System]
+        H[Inventory Management System]
+        I[Shipping Service]
+        J[Return Management System]
+    end
+
+    A -->|Guest Browsing| A1[Product Listing]
+    B -->|Guest Browsing| B1[Product Listing]
+    C -->|Guest Browsing| C1[Product Listing]
+
+    A1 -->|Add to Cart| A2[Cart]
+    B1 -->|Add to Cart| B2[Cart]
+    C1 -->|Add to Cart| C2[Cart]
+
+    A2 -->|Checkout| A3[Checkout Page]
+    B2 -->|Checkout| B3[Checkout Page]
+    C2 -->|Checkout| C3[Checkout Page]
+
+    A3 -->|Sign in or Checkout as Guest| E
+    B3 -->|Sign in or Checkout as Guest| E
+    C3 -->|Sign in or Checkout as Guest| E
+
+    E -->|Authenticate| A4[Apply Coupons]
+    E -->|Authenticate| B4[Apply Coupons]
+    E -->|Authenticate| C4[Apply Coupons]
+
+    A4 -->|Proceed to Payment| F
+    B4 -->|Proceed to Payment| F
+    C4 -->|Proceed to Payment| F
+
+    F -->|Process Payment| A5[Generate Invoice]
+    F -->|Process Payment| B5[Generate Invoice]
+    F -->|Process Payment| C5[Generate Invoice]
+
+    A5 -->|Download Invoice| G
+    B5 -->|Download Invoice| G
+    C5 -->|Download Invoice| G
+
+    G -->|Update Order Status| D
+    G -->|Update Order Status| H
+    G -->|Update Order Status| I
+    G -->|Update Order Status| J
+
+    H -->|Reduce Stock| D
+
+    E -->|Create Account| K[Update Delivery Address]
+    K -->|Update Billing Information| D
+
+    I -->|Track Shipping Status| A
+    I -->|Track Shipping Status| B
+    I -->|Track Shipping Status| C
+
+    J -->|Track Return Status| D
+
+    D -->|Sync Data| A
+    D -->|Sync Data| B
+    D -->|Sync Data| C
+
+    subgraph Admin Panel
+        L[Website Admin Panel]
+    end
+
+    L -->|Manage Products| D
+    L -->|Manage Orders| G
+    L -->|View Sales| G
+    L -->|Manage Stocks| H
+    L -->|Sync Data| D
+    </div>
+</body>
+</html>
