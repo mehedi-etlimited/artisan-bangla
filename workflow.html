@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workflow Diagram</title>
+    <!-- Include Mermaid.js -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+    <div class="mermaid">
+graph TD;
+
+    subgraph UK Customers
+        A[Website]
+        B[iOS App]
+        C[Android App]
+    end
+
+    subgraph User Actions
+        D[Browse Products]
+        E[View Product Details]
+        F[Add to Cart]
+        G[View Cart]
+        H[Update Cart]
+        I[Remove from Cart]
+        J[Proceed to Checkout]
+        K[Login/Register]
+        L[Checkout as Guest]
+        M[Enter Shipping Details]
+        N[Apply Coupon]
+        O[Select Payment Method]
+        P[Review Order]
+        Q[Confirm Order]
+        R[Order Confirmation]
+        S[Track Order]
+        T[View Order History]
+        U[Manage Account]
+        V[Leave Review]
+        W[Update Profile]
+        X[Change Password]
+        Y[View Saved Items]
+        Z[Manage Addresses]
+    end
+
+    A -->|Browse Products| D
+    B -->|Browse Products| D
+    C -->|Browse Products| D
+
+    D -->|Select Product| E
+    E -->|Add to Cart| F
+    F -->|View Cart| G
+    G -->|Update Quantity| H
+    G -->|Remove Item| I
+    G -->|Proceed to Checkout| J
+
+    J -->|Login or Register| K
+    J -->|Checkout as Guest| L
+
+    K -->|Enter Shipping Details| M
+    L -->|Enter Shipping Details| M
+    M -->|Check if Billing Information Updated| N
+    N -->|Update Billing Information| Z
+    Z -->|Apply Coupon| O
+    O -->|Check if Shipping Address Updated| P
+    P -->|Select Shipping Address| Z
+    Z -->|Select Payment Method| O
+    O -->|Review Order| Q
+    Q -->|Confirm Order| R
+    R -->|Order Confirmation| S
+    S -->|View Order History| T
+    T -->|Manage Account| U
+    U -->|Leave Review| V
+    U -->|Update Profile| W
+    U -->|Change Password| X
+    U -->|View Saved Items| Y
+    U -->|Manage Addresses| Z
+
+    A -->|Proceed to Checkout| J
+    B -->|Proceed to Checkout| J
+    C -->|Proceed to Checkout| J
+
+    </div>
+</body>
+</html>
